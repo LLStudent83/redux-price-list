@@ -1,0 +1,59 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
+    "airbnb",
+    "airbnb-typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["tsconfig.json"]
+
+  },
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
+  "rules": {
+    "jsx-a11y/control-has-associated-label": [ 2, {
+      "controlComponents": ["CustomButton"],
+      "ignoreElements": [
+        "button",
+        "input"
+      ]
+    }],
+    "no-param-reassign": "off",
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": ["off"],
+    "no-use-before-define": "off",
+    "import/preferred-default-export": "off",
+    "react / prop-types": "off",
+    "linebreak-style": 0,
+    "max-len": ["warn", { "code": 80 }],
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true
+      }
+    ],
+    "react/button-has-type": [0, {}]
+    
+  },
+  "settings": {
+    "import / resolver": {
+      "typescript": {}
+    }
+  }
+}

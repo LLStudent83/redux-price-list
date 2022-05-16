@@ -1,0 +1,32 @@
+.CreatePrice__label {
+    margin-left: 1rem;
+}
+
+.CreatePrice__input {
+    display: block;
+}
+
+.CreatePrice__wrapper {
+    display: flex;
+    align-items: flex-end;
+}
+
+.CreatePrice__save {
+    margin-left: 1rem;
+    height: 1.3rem;
+}
+
+.PriseItem__change, .PriseItem__delete {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: cover;
+}
+
+.PriseItem__change{
+    background-image: url(../../../pic/edit_FILL0_wght400_GRAD0_opsz48.svg);
+
+}
+
+.PriseItem__delete {
+    background-image: url(../../../pic/close_FILL0_wght400_GRAD0_opsz48.svg);
+}
