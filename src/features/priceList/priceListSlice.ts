@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
-import type { RootState } from '../../store';
 
 type Price = {
   id: string,
@@ -11,9 +10,9 @@ type Price = {
 type InitialStateType = {
   prices?: (Price | null)[],
   changeOrCreate?: string,
-  changePrise?: {
+  changePrise: {
     name: string,
-    cost: string,
+    cost: number,
     id: string,
   },
 };
@@ -23,7 +22,7 @@ const initialState: InitialStateType = {
   changeOrCreate: 'create',
   changePrise: {
     name: '',
-    cost: '',
+    cost: 0,
     id: '',
   },
 };
@@ -34,33 +33,33 @@ export const priceListSlice = createSlice({
   reducers: {
     savePrise: (state, action: PayloadAction<Price>) => {
       const { name, cost } = action.payload;
-      state.prices.push({ id: nanoid(), name, cost });
+      state?.prices?.push({ id: nanoid(), name, cost });
     },
     changePrise: (state, action: PayloadAction<Price>) => {
       const { name, cost, id } = action.payload;
-      state.prices = state.prices.map((item) => (
-        item.id === id ? { ...item, name, cost } : item
+      state.prices = state?.prices?.map((item) => (
+        item?.id === id ? { ...item, name, cost } : item
       ));
     },
     deletePrice: (state, action: PayloadAction<Price>) => {
       const { id } = action.payload;
-      const delIndex = state.prices.findIndex((item) => item.id === id);
-      state.prices.splice(delIndex, 1);
+      const delIndex = state?.prices?.findIndex((item) => item?.id === id);
+      state?.prices?.splice(delIndex, 1);
     },
-    changeCreateed: (state, action: PayloadAction<InitialStateType>) => {
+    changeCreateed: (state, action: PayloadAction<any>) => {
       const { changeOrCreate, id } = action.payload;
       state.changeOrCreate = changeOrCreate;
       if (id === null) {
         state.changePrise.name = '';
-        state.changePrise.cost = '';
+        state.changePrise.cost = 0;
         state.changePrise.id = '';
 
         return;
       }
-      const changePrise = state.prices.find((item) => item.id === id);
-      state.changePrise.name = changePrise?.name;
-      state.changePrise.cost = changePrise?.cost;
-      state.changePrise.id = changePrise?.id;
+      const changePrise = state?.prices?.find((item) => item?.id === id);
+      state.changePrise.name = changePrise.name;
+      state.changePrise.cost = changePrise.cost;
+      state.changePrise.id = changePrise.id;
     },
     default: (state) => {
       state;

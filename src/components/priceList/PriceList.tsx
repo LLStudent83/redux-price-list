@@ -13,9 +13,9 @@ export default function PriceList(): JSX.Element {
       <p className="PriceList__headers">
         Здесь выведем список
       </p>
-      {prises.map((prise) => (
+      {prises?.map((prise) => (
         <PriseItem
-          key={prise.id}
+          key={prise?.id}
           id={prise.id}
           name={prise.name}
           cost={prise.cost}

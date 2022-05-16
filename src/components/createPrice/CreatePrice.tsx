@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../hooks';
-
-// import { useDispatch, useSelector } from 'react-redux';
-
 import { savePrise, changeCreateed, changePrise }
   from '../../features/priceList/priceListSlice';
 import './createPrice.scss';
@@ -43,7 +40,6 @@ export default function CreatePrice(): JSX.Element {
     if (stateChangeOrCreate === 'change') {
       setName(changePrice.name);
       setCost(Number(changePrice.cost));
-      console.log(changePrice);
     }
   }, [changePrice, stateChangeOrCreate]);
 
@@ -66,7 +62,7 @@ export default function CreatePrice(): JSX.Element {
           type="number"
           id="cost"
           value={cost}
-          onChange={(e) => setCost(e.target.value)}
+          onChange={(e) => setCost(Number(e.target.value))}
 
         />
       </label>

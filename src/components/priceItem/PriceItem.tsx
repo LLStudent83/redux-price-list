@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useAppSelector, useAppDispatch } from '../../hooks';
+import { useAppDispatch } from '../../hooks';
 import { deletePrice, changeCreateed }
   from '../../features/priceList/priceListSlice';
 
