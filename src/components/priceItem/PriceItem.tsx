@@ -1,7 +1,9 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import { useAppDispatch } from '../../hooks';
-import { deletePrice, changeCreateed }
+import { changeCreateed }
   from '../../features/priceList/priceListSlice';
+import { PriceContext } from '../createPrice/CreatePrice';
 
 import './priceItem.scss';
 
@@ -9,9 +11,7 @@ export default function PriseItem({ name, cost, id }:
 { name: string, cost: number, id: string }): JSX.Element {
   const dispatch = useAppDispatch();
 
-  const hendlClickDeletePrice = (id: string): void => {
-    dispatch(deletePrice({ id }));
-  };
+  const hendlClickDeletePrice = useContext(PriceContext);
 
   const hendlClickChangePrice = (id: string): void => {
     dispatch(changeCreateed({ changeOrCreate: 'change', id }));
